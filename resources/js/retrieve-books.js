@@ -44,6 +44,10 @@ $(document).ready(function () {
                 '<p class="card-text"><strong>Pages:</strong> ' +
                 book.pages +
                 "</p>";
+            html +=
+                '<button class="btn btn-primary openModalButton" data-book-id="' +
+                book.id +
+                '">View Details</button>';
             html += "</div></div></div>";
         });
         html += "</div>";

@@ -82,36 +82,34 @@
 @vite(['resources/js/retrieve-books.js'])
 
 <script defer>
-    $(document).ready(function () {
-        $('.openModalButton').click(function () {
-            var bookId = $(this).data('book-id');
-            $.ajax({
-                url: `/books/${bookId}`,
-                method: 'GET',
-                data: bookId,
-                success: function (response) {
-                    const modalBody = document.querySelector(".modal-body");
-                    const formAction = `/books/${bookId}/reserve`;
-                    $('#reservationForm').attr('action', formAction);
-                    modalBody.innerHTML = `
-                        <h5>${response.title}</h5>
-                        <p><strong>Author:</strong> ${response.author}</p>
-                        <p><strong>Category:</strong> ${response.categories.join(", ")}</p>
-                        <p><strong>Pages:</strong> ${response.pages}</p>
-                        <div class="form-group">
-                        <label for="reservation_end">Reservation End Date:</label>
-                        <input type="date" class="form-control" id="reservation_end" name="reservation_end" required>
-                    </div>
-                    `;
-                    $('#bookModal').modal('show');
-                },
-                error: function () {
-                    $('.modal-body').text('An error occurred while fetching user data.');
-                    $('#bookModal').modal('show');
-                }
-            });
-        });
+$('.openModalButton').click(function () {
+    var bookId = $(this).data('book-id');
+    $.ajax({
+        url: `/books/${bookId}`,
+        method: 'GET',
+        data: bookId,
+        success: function (response) {
+            const modalBody = document.querySelector(".modal-body");
+            const formAction = `/books/${bookId}/reserve`;
+            $('#reservationForm').attr('action', formAction);
+            modalBody.innerHTML = `
+                <h5>${response.title}</h5>
+                <p><strong>Author:</strong> ${response.author}</p>
+                <p><strong>Category:</strong> ${response.categories.join(", ")}</p>
+                <p><strong>Pages:</strong> ${response.pages}</p>
+                <div class="form-group">
+                <label for="reservation_end">Reservation End Date:</label>
+                <input type="date" class="form-control" id="reservation_end" name="reservation_end" required>
+            </div>
+            `;
+            $('#bookModal').modal('show');
+        },
+        error: function () {
+            $('.modal-body').text('An error occurred while fetching user data.');
+            $('#bookModal').modal('show');
+        }
     });
+});
 </script>
 
 </x-app-layout>
