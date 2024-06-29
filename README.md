@@ -88,7 +88,13 @@ Follow these steps to install and set up the project:
     php artisan db:seed
     ```
 
-8. **Running the Application**:
+8. **Build Frontend Assets**:
+
+    ```bash
+    npm run dev
+    ```
+
+9. **Running the Application**:
     ```bash
     php artisan serve
     ```
