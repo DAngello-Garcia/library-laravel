@@ -48,7 +48,7 @@ Follow these steps to install and set up the project:
 
     ```bash
     git clone https://github.com/DAngello-Garcia/library-laravel.git
-    cd your-repo-name
+    cd library-laravel
     ```
 
 2. **Install PHP Dependencies**:
@@ -64,7 +64,7 @@ Follow these steps to install and set up the project:
     ```
 
 4. **Set Up Environment Variables**:
-   Copy the `.env.example` file to `.env` and update the database credentials and other necessary configuration.
+   Copy the `.env.example` file to `.env`.
 
     ```bash
     cp .env.example .env
@@ -88,15 +88,7 @@ Follow these steps to install and set up the project:
     php artisan db:seed
     ```
 
-8. **Build Frontend Assets**:
+8. **Running the Application**:
     ```bash
-    npm run dev
+    php artisan serve
     ```
-
-## Running the Application
-
-To start the Laravel development server, run:
-
-```bash
-php artisan serve
-```
